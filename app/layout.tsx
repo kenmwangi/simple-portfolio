@@ -50,10 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-black/95 min-h-screen antialiased max-w-2xl mx-auto py-12 sm:py-24 pxx-6`}
+        className={`${inter.className} text-white/70 bg-black/95 min-h-screen antialiased max-w-7xl mx-auto px-6`}
       >
         <Header />
-        <div>{children}</div>
+        <div className="-z-10">{children}</div>
       </body>
     </html>
   );

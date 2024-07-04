@@ -9,10 +9,10 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="flex w-full justify-center py-5">
+    <header className="flex w-full py-5">
       <div className="flex gap-8">
         <div className="text-sm/6 font-semibold text-white/50 focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white">
-          Products
+          <Link href="/blog">Blog</Link>
         </div>
         <Popover>
           <PopoverButton className="block text-sm/6 font-semibold text-white/50 focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white">
@@ -22,7 +22,7 @@ export default function Header() {
           <PopoverPanel
             transition
             anchor="bottom"
-            className="origin-top data-[closed]:scale-95 mt-2 divide-y divide-white/5 rounded-xl bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+            className="z-50 origin-top data-[closed]:scale-95 mt-2 divide-y divide-white/5 rounded-xl bg-black/75 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
           >
             <div className="p-3">
               <Link
