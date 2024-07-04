@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/shared/Header";
 import { DATA } from "@/data/resume";
+import Navbar from "@/components/shared/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen bg-white antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
       >
-        <Header />
+        <Navbar />
         <div className="-z-10">{children}</div>
       </body>
     </html>
