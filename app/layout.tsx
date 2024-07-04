@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} text-white/70 bg-black/95 min-h-screen antialiased max-w-7xl mx-auto px-6`}
+        className={`${inter.className} min-h-screen bg-white antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
       >
         <Header />
         <div className="-z-10">{children}</div>
