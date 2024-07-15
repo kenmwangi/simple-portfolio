@@ -39,7 +39,7 @@ export default function Navbar() {
         "backdrop-blur-md bg-white/90"
       )}
     >
-      <div className="flex items-center justify-between mx-auto">
+      <div className="container flex items-center justify-between mx-auto">
         <div className="flex items-center space-x-2">
           <Link href="/" aria-label="Go to the Ken Mwangi home page">
             <div className="flex items-center space-x-1 opacity-100 hover:opacity-80 transition-opacity">
@@ -57,7 +57,7 @@ export default function Navbar() {
               return (
                 <Link
                   href={url}
-                  key={url}
+                  key={name}
                   target={external ? "_blank" : ""}
                   aria-label={label ?? name}
                   className={cn(
