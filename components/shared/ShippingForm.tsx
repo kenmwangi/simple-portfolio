@@ -28,7 +28,7 @@ export default function ShippingForm() {
             placeholder="Street address"
             className={clsx(
               "mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white placeholder:text-white/10",
-              "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
+              "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
             )}
           />
         </Field>
@@ -43,7 +43,7 @@ export default function ShippingForm() {
                 "mt-3 block w-full appearance-none rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white",
                 "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
                 // Make the text of each option black on windows
-                "*:text-black"
+                "*:text-black",
               )}
             >
               <option value="nairobi">Nairobi</option>
@@ -66,7 +66,7 @@ export default function ShippingForm() {
           <Textarea
             className={clsx(
               "mt-3 block w-full resize-none rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white",
-              "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
+              "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
             )}
             rows={3}
           />

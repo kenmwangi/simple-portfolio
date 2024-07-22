@@ -13,7 +13,7 @@ interface Props {
 
 export default function CategoryPage({ params }: Props) {
   let posts = getBlogPosts().filter(
-    (post) => post.metadata.category === params.category
+    (post) => post.metadata.category === params.category,
   );
 
   if (!posts) {

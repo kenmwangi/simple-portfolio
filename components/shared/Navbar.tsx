@@ -37,7 +37,7 @@ export default function Navbar() {
       className={cn(
         "w-full px-5 py-4 border-b border-neutral-200 z-50",
         "sticky top-0 -50",
-        "backdrop-blur-md bg-white/90"
+        "backdrop-blur-md bg-white/90",
       )}
     >
       <Container>
@@ -65,7 +65,7 @@ export default function Navbar() {
                     className={cn(
                       "flex items-center opacity-80 hover:opacity-100 transition-opacity text-[15px] pl-2 md:pl-3 group",
                       currentPath === url &&
-                        "underline underline-offset-8 decoration-dotted decoration-neutral-500"
+                        "underline underline-offset-8 decoration-dotted decoration-neutral-500",
                     )}
                   >
                     {!external && (

@@ -52,7 +52,7 @@ export default function FAQ() {
                 <ChevronDownIcon
                   className={clsx(
                     "w-5 size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180",
-                    open && "rotate-180"
+                    open && "rotate-180",
                   )}
                 />
               </DisclosureButton>
