@@ -11,12 +11,6 @@ export default {
     providers: [
         Google,
         Credentials({
-            // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-            // e.g. domain, username, password, 2FA token, etc.
-            // credentials: {
-            //     email: {},
-            //     password: {},
-            // },
             authorize: async (credentials) => {
                 const { data, success } = loginSchema.safeParse(credentials);
 

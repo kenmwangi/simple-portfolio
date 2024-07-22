@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
 import { DATA } from "@/data/resume";
 import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const inter = Manrope({ subsets: ["latin"] });
 
@@ -50,10 +51,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-white antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
+        className={`${inter.className}flex flex-col h-screen bg-white antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
       >
         <Navbar />
-        <div className="-z-10">{children}</div>
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );

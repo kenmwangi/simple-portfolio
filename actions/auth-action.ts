@@ -1,7 +1,7 @@
 "use server"
 import bcrypt from 'bcryptjs';
-import { signIn } from "@/auth";
 import prisma from "@/lib/prisma";
+import { signIn } from "@/auth";
 import { loginSchema, registerSchema } from "@/lib/validations";
 import { AuthError } from "next-auth";
 import { z } from "zod"

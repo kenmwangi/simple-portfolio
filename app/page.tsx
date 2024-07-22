@@ -1,4 +1,5 @@
 import SearchComponent from "@/components/SearchComponent";
+import Container from "@/components/shared/Container";
 import DialogModal from "@/components/shared/DialogModal";
 import FAQ from "@/components/shared/FAQ";
 import ShippingForm from "@/components/shared/ShippingForm";
@@ -14,21 +15,23 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <div className="mt-16">
-        <Link href="/">
-          <Image
-            width={100}
-            height={120}
-            alt="Ken"
-            src="/me.jpg"
-            className="rounded-full object-fit w-[50px] h-[50px]"
-          />
-        </Link>
-        <h1 className="font-medium text-gray-900 mt-2 text-xl">Ken Mwangi</h1>
-        <p className="text-gray-500">Data Analyst & Technical Writer</p>
-      </div>
-    </main>
+    <Container>
+      <main className="flex flex-col min-h-[100dvh] space-y-10">
+        <div className="mt-16">
+          <Link href="/">
+            <Image
+              width={100}
+              height={120}
+              alt="Ken"
+              src="/me.jpg"
+              className="rounded-full object-fit w-[50px] h-[50px]"
+            />
+          </Link>
+          <h1 className="font-medium text-gray-900 mt-2 text-xl">Ken Mwangi</h1>
+          <p className="text-gray-500">Data Analyst & Technical Writer</p>
+        </div>
+      </main>
+    </Container>
     // <main className="sm:container">
     //   <SearchComponent />
     //   <h3 className="text-2xl sm:text-4xl font-bold text-slate-500 py-16 text-center uppercase tracking-wide">
