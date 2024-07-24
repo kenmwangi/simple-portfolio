@@ -13,14 +13,20 @@ interface Props {
 
 export default function CategoryPage({ params }: Props) {
   let posts = getBlogPosts().filter(
-    (post) => post.metadata.category === params.category,
+    (post) => post.metadata.category === params.category
   );
 
-  if (!posts) {
+  if (!posts.length) {
     notFound();
   }
   return (
     <Container>
+      <h1 className="font-semibold mt-8">
+        Category:{" "}
+        <span className="text-balance tracking-wider mt-4 uppercase text-blue-600">
+          {posts[0]?.metadata.category}
+        </span>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {posts
           .sort((a, b) => {

@@ -5,6 +5,7 @@ import FAQ from "@/components/shared/FAQ";
 import ShippingForm from "@/components/shared/ShippingForm";
 import SimpleMenuItem from "@/components/shared/SimpleMenuItem";
 import TabMenu from "@/components/shared/TabMenu";
+import { Card } from "@/components/ui/card";
 import { Button, Menu } from "@headlessui/react";
 import { Bars2Icon } from "@heroicons/react/16/solid";
 import Image from "next/image";
@@ -16,20 +17,33 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Home() {
   return (
     <Container>
-      <main className="flex flex-col min-h-[100dvh] space-y-10">
-        <div className="mt-16">
-          <Link href="/">
-            <Image
-              width={100}
-              height={120}
-              alt="Ken"
-              src="/me.jpg"
-              className="rounded-full object-fit w-[50px] h-[50px]"
-            />
-          </Link>
-          <h1 className="font-medium text-gray-900 mt-2 text-xl">Ken Mwangi</h1>
-          <p className="text-gray-500">Data Analyst & Technical Writer</p>
-        </div>
+      <main className="relative w-full max-w-5xl mt-16">
+        <Card className="shadow-md p-6 flex flex-col items-start relative">
+          <div className="max-w-[600px]">
+            <Link href="/">
+              <Image
+                width={100}
+                height={120}
+                alt="Ken"
+                src="/me.jpg"
+                className="rounded-full object-fit w-[50px] h-[50px]"
+              />
+            </Link>
+          </div>
+          <h1 className="text-3xl text-stone-400 font-semibold mt-2">
+            Ken Mwangi
+          </h1>
+          <p className="text-stone-300 mt-1">Data Analyst & Technical Writer</p>
+
+          <div className="w-full mt-6 grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 sm:max-w-[380px]">
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:opacity-90 shadow-sm h-10 rounded-md px-6"
+            >
+              Explore projects
+            </Link>
+          </div>
+        </Card>
       </main>
     </Container>
     // <main className="sm:container">

@@ -71,3 +71,18 @@ model VerificationToken {
 
   @@id([identifier])
 }
+
+model Blog {
+  id         Int      @id @default(autoincrement())
+  slug       String   @unique
+  title      String
+  category   String
+  view_count Int      @default(1)
+  updated_at DateTime @default(now())
+}
+
+model Subscriber {
+  id            Int     @id @default(autoincrement())
+  email         String
+  is_subscribed Boolean @default(true)
+}

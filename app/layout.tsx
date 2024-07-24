@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className}flex flex-col h-screen bg-white antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
+        className={`${inter.className} flex flex-col min-h-screen bg-[#fafaf9] text-[#78716c] antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
       >
         <Navbar />
         <div className="flex-1">{children}</div>

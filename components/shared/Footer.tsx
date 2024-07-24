@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Container from "./Container";
 import Link from "next/link";
 import { Icons } from "../Icons";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { createSubscriber } from "@/actions/email-subscribe";
+import { useFormState } from "react-dom";
 
 const siteFooterLinks = [
   {
@@ -25,13 +28,15 @@ const siteFooterLinks = [
 ];
 
 export default function Footer() {
+  const initialState = { message: "", errors: {} };
+  const [state, dispatch] = useFormState(createSubscriber, initialState);
   return (
     <footer className="bg-gray-50 py-8 mt-10">
       <Container className="px-4 md:px-12">
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-md font-semibold">Ken Mwangi</span>
+              <span className="text-md font-medium">Ken Mwangi</span>
             </div>
             <p className="text-gray-500 text-sm">
               Welcome to my space where I share software development insights.
@@ -58,7 +63,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-md font-semibold">Links</h3>
+            <h3 className="text-md font-medium">Links</h3>
             <ul className="space-y-2 text-sm">
               {siteFooterLinks.map((link) => {
                 const { title, href } = link;
@@ -77,12 +82,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-md font-semibold">Newsletter</h3>
+            <h3 className="text-md font-medium">Newsletter</h3>
             <p className="text-gray-500 text-sm">
               Subscribe to our newsletter to stay up-to-date with the latest
               news and updates.
             </p>
-            <form action="">
+            <form action={dispatch}>
               <div className="flex space-x-2">
                 <Input
                   type="email"
@@ -94,6 +99,22 @@ export default function Footer() {
                   aria-describedby="email-error"
                 />
                 <Button>Subscribe</Button>
+              </div>
+              <div
+                className="px-1"
+                id="email-error"
+                aria-label="polite"
+                aria-atomic="true"
+              >
+                {state?.errors?.email &&
+                  state.errors.email.map((error: string) => (
+                    <p className="text-xs text-red-500" key={error}>
+                      {error}
+                    </p>
+                  ))}
+                {!state.errors?.email && (
+                  <p className="text-xs text-green-500">{state?.message}</p>
+                )}
               </div>
             </form>
           </div>

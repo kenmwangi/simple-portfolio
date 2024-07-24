@@ -21,7 +21,7 @@ export default function CardCategory({
   return (
     <Card className="w-full lg:w-[350px] lg:h-[290px] shadow-md">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-lg tracking-wide">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>{summary}</p>

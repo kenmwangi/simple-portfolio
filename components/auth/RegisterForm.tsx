@@ -58,10 +58,36 @@ export default function RegisterForm() {
     });
   }
   return (
-    <Card className="w-[400px] lg:max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl">Create an account</CardTitle>
-        <CardDescription>Enter your details below to sign up.</CardDescription>
+    <Card className="w-full sm:w-96 relative z-10">
+      <CardHeader className="space-y-1">
+        <h1 className="text-2xl leading-relaxed font-medium">
+          Get started with Ken Mwangi
+        </h1>
+        <CardDescription className="mt-2 text-stone-400 flex items-center gap-2">
+          Already have an account?
+          <Link
+            href="/login"
+            className="hover:underline transition-all text-primary"
+          >
+            Sign in
+          </Link>
+        </CardDescription>
+
+        <div className="grid grid-cols-1 gap-2">
+          <SocialButton provider="google">
+            <Image
+              height={16}
+              width={16}
+              alt="Google"
+              src="/assets/google.svg"
+              className=""
+            />
+            Google
+          </SocialButton>
+          <div className="text-sm mt-3 text-stone-400 text-center">
+            or using email and password
+          </div>
+        </div>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -73,7 +99,11 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John doe" {...field} />
+                    <Input
+                      placeholder="John doe"
+                      {...field}
+                      className="placeholder:text-stone-400 placeholder:text-xs"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -86,7 +116,11 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="yourdomain@example.com" {...field} />
+                    <Input
+                      placeholder="yourdomain@example.com"
+                      {...field}
+                      className="placeholder:text-stone-400 placeholder:text-xs"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -100,7 +134,12 @@ export default function RegisterForm() {
                   <FormLabel>Password</FormLabel>
 
                   <FormControl>
-                    <Input placeholder="Password" {...field} type="password" />
+                    <Input
+                      placeholder="Password"
+                      {...field}
+                      type="password"
+                      className="placeholder:text-stone-400 placeholder:text-xs"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -118,25 +157,25 @@ export default function RegisterForm() {
                 "Register"
               )}
             </Button>
-            <p className="text-center text-sm">Or</p>
           </form>
         </Form>
-        <SocialButton provider="google">
-          Continue with
-          <Image
-            height={16}
-            width={16}
-            alt="Google"
-            src="/assets/google.svg"
-            className=""
-          />
-        </SocialButton>
-        <div className="mt-4 text-center text-sm">
-          Already a member{" "}
-          <Link href="/login" className="underline">
-            Log in
+
+        <p className="mt-2 text-stone-300 text-[13px]">
+          By signing up, you agree to the{" "}
+          <Link
+            href="#"
+            className="hover:underline inline-flex font-medium !text-stone-400"
+          >
+            Terms & conditions
           </Link>
-        </div>
+          <span className="ml-0.5">and</span>
+          <Link
+            href="#"
+            className="hover:underline inline-flex font-medium !text-stone-400"
+          >
+            Privacy policy
+          </Link>
+        </p>
       </CardContent>
     </Card>
   );

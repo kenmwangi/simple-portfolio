@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight, NotebookPen, XIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "./Container";
 
 const navLinks = [
@@ -31,13 +31,25 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const [sticky, setSticky] = useState(false);
+  const handleStickyNavbar = () => {
+    if (window.scrollY > 50) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleStickyNavbar);
+  }, []);
+
   const currentPath = usePathname();
   return (
     <nav
       className={cn(
-        "w-full px-5 py-4 border-b border-neutral-200 z-50",
-        "sticky top-0 -50",
-        "backdrop-blur-md bg-white/90",
+        "w-full z-50 sticky top-0 px-4 py-4 bg-transparent",
+        sticky && "bg-white/60 border-b border-neutral-100 backdrop-blur-md"
       )}
     >
       <Container>
@@ -65,7 +77,7 @@ export default function Navbar() {
                     className={cn(
                       "flex items-center opacity-80 hover:opacity-100 transition-opacity text-[15px] pl-2 md:pl-3 group",
                       currentPath === url &&
-                        "underline underline-offset-8 decoration-dotted decoration-neutral-500",
+                        "underline underline-offset-8 decoration-dotted decoration-neutral-500"
                     )}
                   >
                     {!external && (

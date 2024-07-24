@@ -16,7 +16,7 @@ export default function BlogPage() {
         <div>
           <LatestPosts />
         </div>
-        <section className="h-full">
+        <section className="h-full sticky top-20">
           <div>
             <h1 className="font-bold mb-4">TOP CATEGORIES</h1>
             <TopCategories />

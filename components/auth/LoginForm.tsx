@@ -79,16 +79,43 @@ export default function LoginForm({
         </p>
       )}
 
-      <Card className="max-w-sm mx-auto">
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account.
+      <Card className="w-full sm:w-96 relative z-10">
+        <CardHeader className="space-y-1">
+          <h1 className="text-2xl leading-relaxed font-medium">
+            Sign in to Ken Mwangi
+          </h1>
+          <CardDescription className="mt-2 text-stone-400 flex items-center gap-2">
+            Don&apos;t have an account?{" "}
+            <Link
+              href="/register"
+              className="hover:underline transition-all text-primary"
+            >
+              Sign up
+            </Link>
           </CardDescription>
+
+          <div className="grid grid-cols-1 gap-2">
+            <SocialButton provider="google">
+              <Image
+                height={16}
+                width={16}
+                alt="Google"
+                src="/assets/google.svg"
+                className=""
+              />
+              Google
+            </SocialButton>
+            <div className="text-sm mt-3 text-stone-400 text-center">
+              or using email and password
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-7 text-stone-700"
+            >
               <FormField
                 control={form.control}
                 name="email"
@@ -96,7 +123,11 @@ export default function LoginForm({
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="yourdomain@example.com" {...field} />
+                      <Input
+                        placeholder="yourdomain@example.com"
+                        {...field}
+                        className="placeholder:text-stone-400 placeholder:text-xs"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -121,6 +152,7 @@ export default function LoginForm({
                         placeholder="Password"
                         {...field}
                         type="password"
+                        className="placeholder:text-stone-400 placeholder:text-xs"
                       />
                     </FormControl>
                     <FormMessage />
@@ -139,25 +171,10 @@ export default function LoginForm({
                   "Login"
                 )}
               </Button>
-              <p className="text-center text-sm">Or</p>
             </form>
           </Form>
-          <SocialButton provider="google">
-            Sign in with
-            <Image
-              height={16}
-              width={16}
-              alt="Google"
-              src="/assets/google.svg"
-              className=""
-            />
-          </SocialButton>
-          <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="underline">
-              Sign up
-            </Link>
-          </div>
+
+          {/* <div className="mt-4 text-center text-sm"></div> */}
         </CardContent>
       </Card>
     </section>

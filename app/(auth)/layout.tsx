@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
-import "../globals.css";
 import { DATA } from "@/data/resume";
 import { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import Link from "next/link";
+import { Home } from "lucide-react";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -20,8 +21,8 @@ export default function AuthLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.className}`}>
-        <div>{children}</div>
+      <body className={`${manrope.className} min-h-screen bg-stone-50`}>
+        <main className="p-4">{children}</main>
       </body>
     </html>
   );
