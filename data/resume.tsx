@@ -3,7 +3,7 @@ import { Icons } from "@/components/Icons";
 export const DATA = {
   name: "Ken Mwangi",
   initials: "KM",
-  url: "https://www.kenmwangi.com",
+  url: "https://kenmwangi.vercel.app",
   location: "Nairobi, Kenya",
   locationLink: "https://www.google.com/maps/place/nairobi",
   description:
@@ -24,7 +24,7 @@ export const DATA = {
     "C++",
   ],
 
-  ogImage: `https://next-blog-cj.vercel.app/og`,
+  ogImage: `https://kenmwangi.vercel.app/og`,
   contact: {
     email: "kenmwangi071@gmail.com",
     tel: "+254717964123",
