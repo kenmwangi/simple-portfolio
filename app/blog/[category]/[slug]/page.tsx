@@ -1,12 +1,64 @@
 import BreadCrumbCustom from "@/components/blog/BreadCrumbCustom";
 import { CustomMDX } from "@/components/blog/CustomMDX";
 import Container from "@/components/shared/Container";
+import { DATA } from "@/data/resume";
 import { formatDate, getBlogPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import React from "react";
 
 interface SingleBlogProps {
   params: { slug: string; category: string };
+}
+
+export async function generateStaticParams() {
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string; category: string };
+}) {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+
+  if (!post) {
+    return;
+  }
+
+  let {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
+
+  let ogImage = image
+    ? image
+    : `${DATA.url}/og?title=${encodeURIComponent(title)}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url: `${DATA.url}/blog/${post?.metadata.category}/${post?.slug}`,
+      images: [{ url: ogImage }],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default function SingleBlog({ params }: SingleBlogProps) {

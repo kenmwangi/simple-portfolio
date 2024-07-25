@@ -24,6 +24,7 @@ export const DATA = {
     "C++",
   ],
 
+  ogImage: `https://next-blog-cj.vercel.app/og`,
   contact: {
     email: "kenmwangi071@gmail.com",
     tel: "+254717964123",

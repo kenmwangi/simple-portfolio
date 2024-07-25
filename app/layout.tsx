@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.name}`,
   },
   description: DATA.description,
+  keywords: [
+    "Backend",
+    "software engineer",
+    "technical writing",
+    "data engineer",
+    "blog",
+  ],
+  authors: [
+    {
+      name: DATA.name,
+      url: DATA.contact.social.GitHub.url,
+    },
+  ],
+  creator: "ken mwangi",
   openGraph: {
     title: `${DATA.name}`,
     description: DATA.description,
@@ -36,6 +50,13 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: "summary_large_image",
+    description: DATA.description,
+    images: [`${DATA.url}/og`],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
   verification: {
     google: "",
@@ -51,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} flex flex-col min-h-screen bg-[#fafaf9] text-[#78716c] antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
+        className={`${inter.className} flex flex-col min-h-screen  text-[#78716c] antialiased selection:bg-neutral-200 scroll-smooth [text-rendering:optimizeLegibility;]`}
       >
         <Navbar />
         <div className="flex-1">{children}</div>

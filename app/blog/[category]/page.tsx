@@ -11,6 +11,23 @@ interface Props {
   };
 }
 
+export async function generateStaticParams() {
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    category: post.metadata.category,
+  }));
+}
+
+export function generateMetadata({ params }: { params: { category: string } }) {
+  let { category } = params;
+
+  return {
+    title: category.toLocaleUpperCase(),
+    description: `All posts in ${category} category`,
+  };
+}
+
 export default function CategoryPage({ params }: Props) {
   let posts = getBlogPosts().filter(
     (post) => post.metadata.category === params.category
