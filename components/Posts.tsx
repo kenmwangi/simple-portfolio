@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { calculateReadingTime, reformatDate } from '@/lib/utils';
-import MaxWidthWrapper from './MaxWidthWrapper';
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { calculateReadingTime, reformatDate } from "@/lib/utils";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 export default function Posts({
   allPosts,
@@ -15,20 +15,20 @@ export default function Posts({
   views: any;
 }) {
   const searchParams = useSearchParams();
-  const tag = searchParams.get('tag');
+  const tag = searchParams.get("tag");
 
   const filteredPosts = tag
     ? allPosts.filter((post: any) => post.metadata.tag.includes(tag))
     : allPosts;
 
   return (
-   <section className="mx-auto max-w-4xl">
-  
+    <section className="mx-auto max-w-4xl">
       <div className="grid grid-cols-1 gap-10 pb-10 mt-4 ">
         <div className="flex flex-col">
           {/* <span className="text-4xl font-bold md:px-6 mb-6 md:mb-4">
             My Blog
           </span> */}
+          {/* THis */}
 
           <div>
             <div className="grid grid-cols-1 gap-6 md:gap-1 md:px-2">
@@ -59,17 +59,17 @@ export default function Posts({
                           <span className="h-1 w-1 bg-secondaryDarker rounded-full" />
                           <span>
                             <span>
-                              {Intl.NumberFormat('en-US', {
-                                notation: 'compact',
-                              }).format(views[post.slug])}{' '}
-                              {' views'}
+                              {Intl.NumberFormat("en-US", {
+                                notation: "compact",
+                              }).format(views[post.slug])}{" "}
+                              {" views"}
                             </span>
                           </span>
                           <span className="h-1 w-1 bg-secondaryDarker rounded-full" />
                           <span>
                             <span>
                               {calculateReadingTime(post.content)}
-                              {' min read'}
+                              {" min read"}
                             </span>
                           </span>
                         </div>
@@ -95,6 +95,6 @@ export default function Posts({
           </div>
         </div>
       </div>
-      </section>
+    </section>
   );
 }
